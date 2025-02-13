@@ -7,13 +7,13 @@ const register = async(req, res) => {
             const body = req.body
             console.log(body);
             
-            if(!body || !body.username || !body.password){
+            if(!body || !body.username || !body.password || !body.city || !body.email || !body.company || !body.phone){
                   res.status(501).send("Check you`r fields!")
                   return
             }
             const isExist = await checkUser(body.username)
             if(isExist){
-                  res.status(501).send("User with this name already exist!")
+                  res.status(400).send("User with this name already exist!")
                   return 
             }
             const id = await generateRandomID(10)
