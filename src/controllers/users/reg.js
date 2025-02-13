@@ -24,7 +24,8 @@ const register = async(req, res) => {
                   city: body.city, 
                   email:body.email,
                   company: body.company,
-                  phone: body.phone
+                  phone: body.phone,
+                  createdat: new Date()
             }
             const newUser = new User(options)
             newUser.save()
