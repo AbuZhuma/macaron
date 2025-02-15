@@ -12,7 +12,7 @@ const authenticateJWT = (req, res, next) => {
   if (!SECRET_KEY) {
     return res.status(500).json({ message: 'Server error: SECRET_KEY is not defined.' });
   }
-
+  
   jwt.verify(token, SECRET_KEY, (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid token.' });
