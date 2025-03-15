@@ -12,8 +12,9 @@ router.get("/", async(req, res) => {
       let allUsers = await User.find({})
       res.status(200).json(allUsers) 
 })
-router.get("/isexist", authenticateJWT, (req, res) => {
-      res.status(200).json({message: "user exist"})
+router.get("/isexist", authenticateJWT, async(req, res) => {
+      let usr = await User.findOne({userid: req.user.userid})
+      res.status(200).json({message: "user exist", user: usr})
 })
 
 module.exports = router

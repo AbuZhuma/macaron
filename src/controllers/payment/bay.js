@@ -7,4 +7,4 @@ const bay = async(req, res) => {
       }
 } 
 
-module.exports = bay
+module.exports = bay 
